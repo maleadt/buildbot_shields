@@ -16,6 +16,10 @@ header('Content-type: image/svg+xml');
 $render = new SvgRender();
 $poser = new Poser(array($render));
 
+# avoid caching the image
+header('Cache-Control: no-cache, no-store, must-revalidate, max-age=0');
+header('Expires: 0');
+
 $colors = [
     "red" => "e05d44",
     "orange" => "fe7d37",
