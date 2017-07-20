@@ -38,6 +38,10 @@ $branch = "master";
 if (isset($_GET["branch"]))
     $branch = $_GET["branch"];
 
+$name = "build";
+if (isset($_GET["name"]))
+    $name = $_GET["name"];
+
 $mysqli = new mysqli($mysql_hostname, $mysql_username, $mysql_password, $mysql_database);
 
 $stmt = $mysqli->prepare("SELECT complete, results FROM builds
@@ -46,7 +50,7 @@ $stmt->bind_param("ss", $builder, $branch);
 $stmt->execute();
 $stmt->store_result();
 if ($stmt->num_rows == 0) {
-    echo $poser->generate('error', 'no builds', $colors["red"], 'plastic');
+    echo $poser->generate($name, 'no builds', $colors["red"], 'plastic');
 } else {
     $stmt->bind_result($complete, $results);
     $stmt->fetch();
@@ -74,7 +78,7 @@ if ($stmt->num_rows == 0) {
                 $status = "unknown";
         }
     }
-    echo $poser->generate('build', $status, $color, 'plastic');
+    echo $poser->generate($name, $status, $color, 'plastic');
 }
 $stmt->close();
 

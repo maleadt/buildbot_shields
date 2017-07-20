@@ -39,16 +39,17 @@ Use `build.php` to render badges, specifying the following GET parameters:
 
 - `builder` (required)
 - `branch` (optional, defaulting to `master`)
+- `name` (optional, defaulting to `build`): changing the left-hand side text
 
 
 You can use `redirect.php` to get a hold of the build result page, which you can use to make
-the badges clickable. The parameters are the same as for `build.php`.
+the badges clickable. The parameters are the same as for `build.php`, except for `name`.
 
 For example, you could embed the use the following code in your `README.md`:
 
 ```
 
-[builder-img]: http://$WHEREVER/shields/build.php?builder=foo&branch=bar
+[builder-img]: http://$WHEREVER/shields/build.php?builder=foo&branch=bar&name=Foo
 [builder-url]: http://$WHEREVER/shields/url.php?builder=foo&branch=bar
 
 Build status: [![][builder-img]][builder-url]
