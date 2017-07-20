@@ -20,7 +20,7 @@ if (count($sourcestamps) == 0) {
     trigger_error("too many sourcestamps received", E_USER_ERROR);
 } else {
     $branch = $sourcestamps[0]->branch;
-    if (is_null($branch) && isnull($sourcestamps[0]->revision)) {
+    if (is_null($branch) && is_null($sourcestamps[0]->revision)) {
         # we only check out the latest branch if there's no revision specified
         # TODO: the documentation mentions a `changed` object...
         $branch = "master";
