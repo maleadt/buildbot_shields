@@ -53,3 +53,9 @@ For example, you could embed the use the following code in your `README.md`:
 
 Build status: [![][builder-img]][builder-url]
 ```
+
+
+## Hacking
+
+Valid JSON data is available in `example.json`, which you can submit using `curl`: `curl -v
+-X POST http://WHEREVER/shields/submit.php --data @example.json`.
