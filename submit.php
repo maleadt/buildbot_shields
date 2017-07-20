@@ -7,8 +7,13 @@ error_reporting(E_ALL);
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 include 'private.php';
 
+# decode JSON input
 $data = file_get_contents("php://input");
+if (empty($data))
+    trigger_error("no data received", E_USER_ERROR);
 $build = json_decode($data);
+if (empty($build))
+    trigger_error("invalid data received", E_USER_ERROR);
 
 # figure out the branch this is built on
 $sourcestamps = $build->buildset->sourcestamps;
