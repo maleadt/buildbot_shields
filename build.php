@@ -12,6 +12,7 @@ require __DIR__ . '/vendor/autoload.php';
 use PUGX\Poser\Render\SvgRender;
 use PUGX\Poser\Poser;
 
+header('Content-type: image/svg+xml');
 $render = new SvgRender();
 $poser = new Poser(array($render));
 
