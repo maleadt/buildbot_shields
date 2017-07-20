@@ -1,0 +1,9 @@
+Require all denied
+
+<Files ~ "\.php$">
+    Require all granted
+</Files>
+
+<Files "submit.php">
+    Require host $WHEREVER
+</Files>

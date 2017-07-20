@@ -19,6 +19,8 @@ Quick and dirty HTTP status endpoint for generating Buildbot shields.
    c['services'].append(sp)
    ```
 
+4. (optional) Edit `.htaccess` to lock-down access; see the `.htaccess.sample` template.
+
 
 ## Usage
 
