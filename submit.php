@@ -46,7 +46,7 @@ if (!empty($branch)) {
                                   results = VALUES(results),
                                   time = CURRENT_TIMESTAMP");
     $complete = $build->complete ? 1 : 0;
-    $results = empty($build->results) ? -1 : $build->results;
+    $results = is_null($build->results) ? -1 : $build->results;
     $stmt->bind_param("sssii", $build->builder->name,
                                $branch,
                                $build->url,
