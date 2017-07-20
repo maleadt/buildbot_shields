@@ -1,0 +1,8 @@
+<?php
+
+$mysql_hostname = "localhost";
+$mysql_username = "buildbot";
+$mysql_database = "buildbot";
+$mysql_password = "XXX";
+
+?>
