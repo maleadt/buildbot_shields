@@ -10,7 +10,18 @@ Quick and dirty HTTP status endpoint for generating Buildbot shields.
    using `composer install` (based on the `composer.lock` in this repo).
 
 2. Create a MySQL user and database, and create a `private.php` with those details (see the
-   `private.php.sample` template).
+   `private.php.sample` template). There should be a single table:
+
+   ```sql
+   CREATE TABLE IF NOT EXISTS `builds` (
+     `builder` varchar(256) NOT NULL,
+     `branch` varchar(256) NOT NULL,
+     `url` varchar(256) NOT NULL,
+     `complete` tinyint(1) NOT NULL,
+     `results` int(11) NOT NULL,
+     `time` timestamp NOT NULL
+   )
+   ```
 
 3. Make your buildbot master push its statuses to the `submit.php` endpoint:
 
